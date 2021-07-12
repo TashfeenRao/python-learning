@@ -5,7 +5,10 @@ app = Flask(__name__)
 @app.route('/')
 
 def index():
-    return render_template('basic.html')
+    name = 'tashfeen'
+    letters = list(name)
+    dic = {"jugnu": "puppy"}
+    return render_template('basic.html',name=name, letters=letters, dic = dic)
 
 @app.route('/information')
 
