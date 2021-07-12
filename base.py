@@ -27,6 +27,11 @@ def info():
 def dynamic_name(name):
     return "<h1>This is my new name {}</h1>".format(name)
 
+@app.route("/home")
+
+def home():
+    return render_template('home.html')
+
 @app.route('/puppy/<name>')
 
 def puppy_name(name):
@@ -35,6 +40,6 @@ def puppy_name(name):
         pupname = name[:-1] + 'ifull'
     else:
         pupname = name + 'y'
-    return "<h1>your puppy {} latine name is {}</h1>".format(name,pupname)
+    return render_template("puppy.html",pupname=pupname)
 if __name__ == '__main__':
     app.run(debug=True)
