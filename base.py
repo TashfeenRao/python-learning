@@ -3,12 +3,18 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
-
 def index():
-    name = 'tashfeen'
-    letters = list(name)
-    dic = {"jugnu": "puppy"}
-    return render_template('basic.html',name=name, letters=letters, dic = dic)
+    logged_in = True
+    numbers_list = [1,2,3,4,5,6,7]
+    puppy_list = ['jugnu','majno','lalla']
+    return render_template('basic.html',numbers_list=numbers_list,puppy_list=puppy_list,logged_in=logged_in)
+
+# def index():
+#     name = 'tashfeen'
+#     letters = list(name)
+#     dic = {"jugnu": "puppy"}
+#     return render_template('basic.html',name=name, letters=letters, dic = dic)
+
 
 @app.route('/information')
 

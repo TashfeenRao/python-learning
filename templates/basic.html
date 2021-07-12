@@ -7,9 +7,20 @@
     <title>Basic flask</title>
   </head>
   <body>
-    <h1>Hi there it's first html page returns from server</h1>
-    <h1>Greeting to {{name}}</h1>
-    <h1>this is list of above name {{letters}}</h1>
-    <h1>this is the dictionary {{dic['jugnu']}}</h1>
+    {% if logged_in%}
+    <ul>
+      {% for num in numbers_list %}
+      <li>{{num}}</li>
+      {%endfor%}
+    </ul>
+    <h1>Puppy names</h1>
+    <ul>
+      {%for pupname in puppy_list%}
+      <li>{{pupname}}</li>
+      {%endfor%}
+    </ul>
+    {%else%}
+    <h1>You Need to login first to see the result</h1>
+    {% endif %}
   </body>
 </html>
