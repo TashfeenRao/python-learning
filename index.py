@@ -14,9 +14,9 @@ db = SQLAlchemy(app)
 
 class Puppy:
     __tablename__ = 'puppies'
-    id = db.column(db.INTEGER, primary_key=True)
-    name = db.column(db.String)
-    age = db.column(db.INTEGER)
+    id = db.Column(db.INTEGER, primary_key=True)
+    name = db.Column(db.String)
+    age = db.Column(db.INTEGER)
 
     def __init__(self, name, age):
         self.name = name
