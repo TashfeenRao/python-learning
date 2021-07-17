@@ -8,13 +8,13 @@ db.session.commit()
 
 ################### Read ###################
 
-data = Puppy.query.all()
-print(data)
+all_puppies = Puppy.query.all()
+print(all_puppies)
 
 ################### Edit ####################
 
 item = Puppy.query.get(1)
-item.name = 'updated'
+item.name = 'kamkhua'
 db.session.add(item)
 db.session.commit()
 
