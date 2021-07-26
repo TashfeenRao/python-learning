@@ -1,6 +1,7 @@
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -11,16 +12,20 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+Migrate(app, db)
+
 
 class Puppy(db.Model):
     __tablename__ = 'puppies'
     id = db.Column(db.INTEGER, primary_key=True)
     name = db.Column(db.String)
     age = db.Column(db.INTEGER)
+    bread = db.Column(db.String)
 
-    def __init__(self, name, age):
+    def __init__(self, name, age, bread):
         self.name = name
         self.age = age
+        self.bread = bread
 
     def __repr__(self):
         return f"Puppy name is {self.name}. His age is around {self.age}"
